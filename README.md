@@ -1,57 +1,48 @@
-# Project Name
+---
+page_type: sample
+languages:
+- java
+products:
+- azure
+extensions:
+  services: Compute
+  platforms: java
+---
 
-(short, 1-3 sentenced, description of the project)
-
-## Features
-
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
-
-## Getting Started
-
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
+# Getting Started with Compute - Manage Disk Encryption Set - in Java #
 
 
-## Demo
+  Azure Compute sample for managing disk encryption sets -
+   - Create a key vault kv1 and key k1
+   - Create a disk encryption set, des1, with key vault kv1, key k1 and encryption type
+      ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY
+   - Grant the disk encryption set access to the key vault by defining key vault access policy
+   - Create a new key vault kv2 with RBAC enabled and key k2
+   - Create a new disk encryption set des2 with key vault kv2, key k2, encryption type
+      ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS and grant it role-based access to kv2
+   - Create a virtual machine, with os disk encrypted by des1 and a data disk encrypted by des2
+ 
 
-A demo app is included to show how to use the project.
+## Running this Sample ##
 
-To run the demo, follow these steps:
+To run this sample:
 
-(Add steps to start up the demo)
+See [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) and prepare the authentication works best for you. For more details on authentication, please refer to [AUTH.md](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/docs/AUTH.md).
 
-1.
-2.
-3.
+    git clone https://github.com/Azure-Samples/compute-java-manage-disk-encryption-set.git
 
-## Resources
+    cd compute-java-manage-disk-encryption-set
 
-(Any additional resources or related projects)
+    mvn clean compile exec:java
 
-- Link to supporting information
-- Link to similar sample
-- ...
+## More information ##
+
+For general documentation as well as quickstarts on how to use Azure Management Libraries for Java, please see [here](https://aka.ms/azsdk/java/mgmt).
+
+Start to develop applications with Java on Azure [here](http://azure.com/java).
+
+If you don't have a Microsoft Azure subscription you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+
+---
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
